@@ -21,11 +21,13 @@ public interface StudentMapper
     List<StudentModel> selectAllStudents ();
 
     @Insert("INSERT INTO student (npm, name, gpa) VALUES (#{npm}, #{name}, #{gpa})")
-    boolean addStudent (StudentModel student);
+    void addStudent (StudentModel student);
     
     @Delete("DELETE FROM student where npm = #{npm}")
-    boolean deleteStudent (@Param("npm") String npm); 
+    void deleteStudent (@Param("npm") String npm); 
     
     @Update("UPDATE student SET name = #{name}, gpa = #{gpa} where npm = #{npm}")
-    boolean updateStudent (StudentModel student);
+    void updateStudent (StudentModel student);
 }
+
+

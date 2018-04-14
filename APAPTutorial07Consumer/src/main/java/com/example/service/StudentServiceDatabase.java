@@ -16,13 +16,7 @@ public class StudentServiceDatabase implements StudentService
 {
     @Autowired
     private StudentMapper studentMapper;
-    
-    public StudentServiceDatabase() {}
-	
-    public StudentServiceDatabase(StudentMapper studentMapper) {
-		this.studentMapper = studentMapper;
-	}
-	
+
 
     @Override
     public StudentModel selectStudent (String npm)
@@ -41,25 +35,23 @@ public class StudentServiceDatabase implements StudentService
 
 
     @Override
-    public boolean addStudent (StudentModel student)
+    public void addStudent (StudentModel student)
     {
-         return studentMapper.addStudent (student);
+        studentMapper.addStudent (student);
     }
 
     @Override
-    public boolean deleteStudent (String npm)
+    public void deleteStudent (String npm)
     {
     	log.info ("student"+npm+"deleted");
     	studentMapper.deleteStudent(npm);
-		return false;
     }
 
 	@Override
-	public boolean updateStudent(StudentModel student) 
+	public void updateStudent(StudentModel student) 
 	{
 		log.info("Student {} name update to", student.getNpm(), student.getName());
     	studentMapper.updateStudent(student);
-		return false;
 	} 
 	
 }

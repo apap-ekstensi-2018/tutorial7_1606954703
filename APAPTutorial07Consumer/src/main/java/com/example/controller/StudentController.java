@@ -80,7 +80,7 @@ public class StudentController
             return "not-found";
         }
     }
- 
+
 
     @RequestMapping("/student/viewall")
     public String view (Model model)
